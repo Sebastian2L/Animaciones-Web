@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>skwe</title>
+
+    <style>
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+.container {
+    border: 1px solid red;
+}
+.container:hover .cuadrado {
+   /* skew es inclinar o sesgar */
+   /* transform: skew(x,y); */
+   transform:skew(45deg, 45deg);
+    
+    
+}
+.cuadrado {
+    width: 200px;
+    height: 200px;
+    background-color: #7dc900;
+    transition: 500ms;
+    
+}
+    </style>
+</head>
+
+
+<body>
+<div class="container">
+    <div class="cuadrado">
+
+    </div>
+</div>    
+</body>
+</html>

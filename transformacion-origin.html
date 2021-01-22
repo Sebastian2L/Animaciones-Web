@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>transformacion origen</title>
+
+    <style>
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+.container {
+    border: 1px solid red;
+}
+.container:hover .cuadrado {
+    /* transform-origin:(x,y); */
+    /* transform-origin: (bottom,top,left,right); */
+    /* Tener en cuenta que depende del eje al que agreguemos los valores que todo correra */
+   /* skew es inclinar o sesgar */
+   
+   /* transform: skew(x,y); */
+   transform:rotatez(45deg);
+    
+    
+}
+.cuadrado {
+    width: 200px;
+    height: 200px;
+    background-color: #7dc900;
+    transition: 500ms;
+    transform-origin: left top;
+    
+}
+    </style>
+</head>
+
+
+<body>
+<div class="container">
+    <div class="cuadrado">
+
+    </div>
+</div>    
+</body>
+</html>

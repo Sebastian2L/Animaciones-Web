@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>translate</title>
+
+    <style>
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    perspective: 200px;
+    perspective-origin: center;
+    /* perspective-origin: top; */
+    /* perspective-origin: bottom; */
+    /* perspective-origin: left; */
+    /* perspective-origin: right; */
+
+}
+.container {
+    border: 1px solid red;
+}
+.container:hover .cuadrado {
+    /* transform: translate(x) */
+    /* transform: translate(100px); */
+    /* transform: translate(x,y) */
+    transform: translate(100px, 100px);
+    /* transform: translate3d(x,y,z) */
+    
+    
+}
+.cuadrado {
+    width: 200px;
+    height: 200px;
+    background-color: #7dc900;
+    transition: 500ms;
+    
+}
+    </style>
+</head>
+
+
+<body>
+<div class="container">
+    <div class="cuadrado">
+
+    </div>
+</div>    
+</body>
+</html>
