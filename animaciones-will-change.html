@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>aceleracion-curva</title>
+
+    <style>
+body {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    height: 100vh;
+}
+.container {
+    border: 1px solid red;
+    width: 100%;
+    height: 200px;
+    
+}
+.container:hover .cuadrado {
+    /* transform-origin:(x,y); */
+    /* transform-origin: (bottom,top,left,right); */
+    /* Tener en cuenta que depende del eje al que agreguemos los valores que todo correra */
+   /* skew es inclinar o sesgar */
+   
+   /* transform: skew(x,y); */
+   /* transform:rotatez(45deg); */
+   opacity: 0;
+   transform: scale(1.1);
+    
+    
+}
+.cuadrado {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: #7dc900;
+    animation-name: cuadrado, rebote;
+    position: relative;
+    transition: 1s;
+    will-change: opacity: ;;
+    /* animation-delay: 1s; */
+    /* animation-duration: 3.5s,.3s; */
+    /* animation-iteration-count: infinite, 20; */
+    /* animation-direction: reverse; */
+    /* animation-direction: alternate; */
+    /* animation-fill-mode: forwards; */
+    /* animation-play-state: running; */
+     /* animation-timing-function: cubic-bezier(1,1,1,1); para mejorar la experiencia ir a la pagina para hacer comparaciones y poder hacer las mejores curvas  */
+    /* animation-timing-function: ease; */
+    /* animation-timing-function: ease-in; */
+    animation-timing-function:linear, ease-in-out;
+    /* animation-timing-function: ease-out; */
+    /* animation-timing-function: linear; */
+    /* animation-timing-function: steps(60); */
+}
+    
+
+/* @keyframes cuadrado {
+    0% {
+        left:0%;
+    }
+    100% {
+        left:calc(100% - 240px);
+    }
+}
+
+@keyframes rebote {
+    from {
+    transform:translateY(0);
+    }
+    15%, 80% {
+        background-color: orangered;
+    }
+    to {
+        transform:translateY(100px) scale(1, .8);
+    }
+}
+
+@keyframes escalera{
+    from {
+        transform:translateY(0);
+    }
+    15%, 80% {
+        background-color: orangered;
+    }
+    to {
+        transform:translateY(500px);
+    }
+} */
+    </style>
+</head>
+
+
+<body>
+<div class="container" >
+    <div class="cuadrado" id="cuadrado">
+
+    </div>
+</div>   
+
+<script>
+const $cuadrado = document.getElementById('cuadrado');
+$cuadrado.addEventListener('animationend', (event) => {
+    // console.log(event);
+    if (event.animationName === 'rebote') {
+        $cuadrado.style.animationName = 'cuadrado escalera';
+        $cuadrado.style.animationDuration = '3s';
+    }
+})
+</script>
+</body>
+</html>

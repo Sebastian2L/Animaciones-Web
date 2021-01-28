@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>javascript Element</title>
+    <style>
+        body    {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .container {
+            border: 1px solid red;
+            width: 600px;
+        }
+        .ball {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            border-radius: 50%;
+        }
+
+        .btn {
+            text-align: center;
+            background-color: crimson;
+            border: none;
+            color: white;
+            padding: .6em .8em;
+            margin: 5px;
+            border-radius: 5px;
+            cursor: pointer;
+            box-shadow: inset 0 -.2em rgba(0,0,0,.3);
+            outline: 0;
+            transition: .1s;
+            will-change: transform;
+        }
+        .btn:active {
+            transform:scale(.9);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="ball" id="ball">
+    
+        </div>
+        <div class="buttons">
+            <button class="btn" id="play">Play</button>
+            <button class="btn" id="pause">Pause</button>
+            <button class="btn" id="stop">Stop</button>
+            <button class="btn" id="reverse">Reverse</button>
+            
+        </div>
+    </div> 
+</body>
+
+ <script>
+     const $ball = document.getElementById('ball');
+     const animation = $ball.animate([
+         {
+             transform: 'translateX(0)'
+            //  from
+         },
+         {
+             transform: 'translateX(500px)'
+            //  to
+         }
+     ],{
+         duration: 1000,
+         delay: 1000,
+         direction: 'normal',
+         easing: 'linear',
+         iterations: 20,
+         fill: 'forwards',
+         interationStar:.5,
+        //  endDelay:
+
+     });
+
+     const $Playbutton = document.getElementById('play');
+     const $Pausebutton = document.getElementById('pause');
+     const $Stopbutton = document.getElementById('stop');
+     const $Reversebutton = document.getElementById('reverse');
+     
+     $Playbutton.addEventListener('click', (event) =>{
+         animation.play();
+     });
+     $Pausebutton.addEventListener('click', (event) =>{
+         animation.pause();
+     });
+     $Stopbutton.addEventListener('click', (event) =>{
+         animation.finish();
+     });
+     $Reversebutton.addEventListener('click', (event) =>{
+         animation.reverse();
+     });
+ </script>
+</html>
