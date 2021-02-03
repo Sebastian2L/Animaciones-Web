@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>modal</title>
+    <style>
+
+        .modal {
+            width: 500px;
+            
+            border: 1px solid red;
+            background-color: white;
+            padding: .6em;
+            border-radius: .5em;
+            text-align: center;
+            animation: modalIn .8s forwards;
+        }
+
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0;
+            font-family: arial;
+            flex-direction: column;
+            
+        }
+        
+
+        .overlay {
+            background: rgba(0,0,0,.6);
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: 1.1s ease-in;
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .btn {
+            text-align: center;
+            border: none;
+            color: white;
+            background-color: thistle;
+            padding: .6em .8em;
+            margin: 5px;
+            border-radius: 5px;
+            cursor: pointer;
+            box-shadow: inset 0 -.2em rgba(0,0,0,.3);
+            outline: 0;
+            transition: .1s;
+            will-change: transform;
+            animation-timing-function: ;
+        }
+        .btn:active {
+            transform:scale(.9);
+        }
+
+        .btn.primary {
+            background-color: crimson;
+
+        }
+
+        .btn.warning {
+            background-color: yellow;
+        }
+        .btn.close {
+            background-color: red;
+            color: white;
+            font-weight: 600;
+            position: relative;
+            left: 46%;
+        }
+        
+
+
+        @keyframes modalIn {
+        0% {
+            transform: translateY(-3000px);
+        }
+        60% {
+            transform: translateY(25px);
+        }
+        75% {   
+            transform: translateY(-10px);
+        }
+        90% {
+            transform: translateY(5px);
+        }
+        }
+        @keyframes modalOut {
+        0% {
+            transform: translateY(5px);
+        }
+        60% {
+            transform: translateY(-10px);
+        }
+        75% {   
+            transform: translateY(25px);
+        }
+        100% {
+            transform: translateY(-3000px);
+        }
+        }
+    </style>
+
+
+</head>
+<body>
+    
+    <img src="../Animaciones-Web/platzi.png" alt="">
+    <div class="overlay active" id="overlay">
+     
+        <div class="modal" id="modal">
+            <button class="btn close" id="close">X</button>
+            <h1>Atencion!</h1>
+     <p>Te gustaria seguir trabajando en tu sitio web como lo has estado haciendo hasta ahora?</p>
+     <p>No te preocupes, ve a las opciones de abajo!</p>
+     <div class="modal-buttons">
+         <button class="btn primary" id="hide-modal">
+          perfecto!
+         </button>
+         <button class="btn warning" id="close-modal">
+          Quizas la proxima
+         </button>
+         
+     </div>
+        </div>
+    </div>
+</body>
+
+<script>
+    const $hideModal = document.getElementById('hide-modal');
+    const $closeModal = document.getElementById('close-modal');
+    const $Modal = document.getElementById('modal');
+    const $overlay = document.getElementById('overlay');
+    const $Close = document.getElementById('close');
+
+$hideModal.addEventListener('click' , (event) => {
+    $Modal.style.animation = 'modalOut .8s forwards';
+    $overlay.classList.remove('active');
+});
+
+$closeModal.addEventListener('click' , (event) => {
+    $Modal.style.animation = 'modalOut .8s forwards';
+    $overlay.classList.remove('active');
+});
+
+$overlay.addEventListener('click' , (event) => {
+    $overlay.classList.remove('active');
+});
+
+$close.addEventListener('click' , (event)=> {
+    $overlay.classList.remove('modal');
+} );
+
+
+
+</script>
+</html>
